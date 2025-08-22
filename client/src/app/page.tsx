@@ -1,35 +1,4 @@
-import qs from "qs";
-
-const homePageQuery = qs.stringify({
-  	populate: {
-      blocks: {
-        on: {
-          "blocks.hero-section": {
-            populate: {
-              image: true,              
-              cta: true,
-            },
-          },
-        },
-      },
-    },
-});
-
-
-async function getHomePageData() {
-  const BASE_URL = "http://localhost:1337";
-  const path = "/api/home-page";
-  const url = new URL(path, BASE_URL);
-  url.search = homePageQuery;
-
-  try {
-    const response = await fetch(url.href);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
+import { getHomePageData } from "@/data/loaders";
 
 export default async function HomeRoute() {
   const obj = await getHomePageData();
