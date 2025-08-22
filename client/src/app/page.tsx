@@ -25,7 +25,6 @@ async function getHomePageData() {
   try {
     const response = await fetch(url.href);
     const data = await response.json();
-      console.log(data);
     return data;
   } catch (error) {
     console.error(error);
@@ -33,15 +32,13 @@ async function getHomePageData() {
 }
 
 export default async function HomeRoute() {
-  const data = await getHomePageData();
+  const obj = await getHomePageData();
+  const { title, description } = obj.data;
+
   return (
     <main className="container mx-auto py-6">
-      <h1>{data.title}</h1>
+      <h1 className="text-3xl font-bold">{title}</h1>
+      <p>{description}</p>
     </main>
   );
 }
-
-
-/*
-      <Button>Button to Nowhere</Button>
-*/
