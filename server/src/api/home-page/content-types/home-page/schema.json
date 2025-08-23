@@ -20,7 +20,8 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero-section"
+        "blocks.hero-section",
+        "blocks.features-section"
       ]
     }
   }

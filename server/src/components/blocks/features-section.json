@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_features_sections",
+  "info": {
+    "displayName": "Features Section"
+  },
+  "options": {},
+  "attributes": {
+    "blurbs": {
+      "type": "component",
+      "component": "elements.blurb",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
