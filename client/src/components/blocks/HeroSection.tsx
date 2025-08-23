@@ -5,7 +5,7 @@ import Link from "next/link";
 export async function HeroSection({ data }: { readonly data: HeroSectionProps }) {
   const { heading, subHeading, image, cta } = data;
   const cta0 = cta && cta[0];
-  console.log("cta", cta0);
+  // console.log("cta", cta0);
 
   return (
     <section>
@@ -18,7 +18,7 @@ export async function HeroSection({ data }: { readonly data: HeroSectionProps })
         width={1920}
         height={1080}
       />
-      <div class="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
     </div>
     <div className="mx-auto max-w-2xl py-32 sm:py-12 lg:py-16">
       <div className="text-center">
@@ -27,16 +27,14 @@ export async function HeroSection({ data }: { readonly data: HeroSectionProps })
         <div className="mt-10 flex items-center justify-center gap-x-6">
           {cta0 && (
             <button className={"btn btn--medium rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"}>
-              <Link href={cta0.href} target={cta0.isExternal ? "_blank" : "_self"}>
+              <Link href={cta0.href} 
+                target={cta0.isExternal ? "_blank" : "_self"}>
                 {cta0.text}
               </Link>
             </button>
           )}
-
         </div>
       </div>
-    </div>
-    <div aria-hidden="true" className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
     </div>
   </div>
 
