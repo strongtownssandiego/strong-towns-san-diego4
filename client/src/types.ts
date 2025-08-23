@@ -8,7 +8,7 @@ export interface LinkProps {
 
 
 export interface ImageProps {
-  // id: number;
+  id: number;
   // documentId: string;
   url: string;
   alternativeText: string;
