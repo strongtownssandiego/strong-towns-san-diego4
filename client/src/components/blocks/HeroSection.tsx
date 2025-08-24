@@ -15,8 +15,8 @@ export async function HeroSection({ data }: { readonly data: HeroSectionProps })
         src={image.url}
         alt={image.alternativeText || "No alternative text provided"}
         className="hero__background-image"
-        width={1920}
-        height={1080}
+        width={1000}
+        height={525}
         priority
       />
       <div className="absolute inset-0 bg-black/20"></div>

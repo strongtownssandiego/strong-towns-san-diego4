@@ -15,8 +15,8 @@ async function fetchData(url: string) {
 }
 
 const homePageQuery = qs.stringify({
-    populate: {
-      blocks: {
+populate: {
+    blocks: {
         on: {
           "blocks.hero-section": {
             populate: {
@@ -24,16 +24,29 @@ const homePageQuery = qs.stringify({
               cta: true,
             },
           },
+          "blocks.features-section": {
+            populate: {
+              blurbs: {
+                fields: ["heading", "description"],
+                populate: {
+                  "cta": true,
+                },
+
+              },        
+            },
+          },
         },
-      },
-    },
-});
+      }
+
+  }
+}
+);
 
 
 export async function getHomePageData() {
   const path = "/api/home-page";
   const url = new URL(path, BASE_URL);
   url.search = homePageQuery;
-  
+
   return await fetchData(url.href);
 }

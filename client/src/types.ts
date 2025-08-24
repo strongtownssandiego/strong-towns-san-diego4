@@ -19,15 +19,24 @@ export interface LogoProps {
   image: ImageProps;
 }
 
+interface BlurbProps {
+  id: number;
+  heading: string;
+  description: string;
+  cta: LinkProps;
+}
+
+
+
 type ComponentType =
   | "blocks.hero-section"
-  | "blocks.info-block"
-  | "blocks.featured-article"
-  | "blocks.subscribe"
-  | "blocks.heading"
-  | "blocks.paragraph-with-image"
-  | "blocks.paragraph"
-  | "blocks.full-image";
+  | "blocks.features-section";
+  // | "blocks.info-block"
+  // | "blocks.subscribe"
+  // | "blocks.heading"
+  // | "blocks.paragraph-with-image"
+  // | "blocks.paragraph"
+  // | "blocks.full-image";
 
 
 export interface Base<T extends ComponentType, D extends object = Record<string, unknown>> {
@@ -42,7 +51,8 @@ export interface Base<T extends ComponentType, D extends object = Record<string,
 
 
 export type Block =
-  | HeroSectionProps;
+  | HeroSectionProps
+  | FeaturesSectionProps;
   // | InfoBlockProps
   // | FeaturedArticleProps
   // | SubscribeProps
@@ -56,7 +66,13 @@ export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   heading: string;
   subHeading: string;
   image: ImageProps;
-  cta?: LinkProps;
+  cta?: LinkProps[];
   // author?: string;
   // darken?: boolean;
 }
+
+export interface FeaturesSectionProps extends Base<"blocks.features-section"> {
+  id: number;
+  blurbs: BlurbProps[];
+}
+
