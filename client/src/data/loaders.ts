@@ -50,3 +50,30 @@ export async function getHomePageData() {
 
   return await fetchData(url.href);
 }
+
+const globalQuery = qs.stringify(
+{
+  populate: {
+    header: {
+      populate: {
+        logo: {
+          fields: ["logoText"],
+          populate: {
+            "image": true,
+          },
+        },
+        navigation: true,
+        cta: true,
+      }
+    }
+  }
+}
+);
+
+export async function getGlobalData() {
+  const path = "/api/global";
+  const url = new URL(path, BASE_URL);
+  url.search = globalQuery;
+
+  return await fetchData(url.href);
+}

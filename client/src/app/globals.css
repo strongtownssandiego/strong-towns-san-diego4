@@ -106,7 +106,7 @@
   --sidebar-foreground: oklch(0.984 0.003 247.858);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent: oklch(27.99% 0.0408 260.347);
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
@@ -119,4 +119,29 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4.8rem;
+    z-index: 10;
+    background-color: $light-beige;
+  }
+
+  .header__logo {
+    height: auto;
+    width: 5rem;
+  }
+
+  .header__nav {
+    display: flex;
+    list-style: none;
+  }
+
+  .header__nav li:not(:last-of-type) {
+    margin-right: 4.6rem;
+  }
+
+  
 }

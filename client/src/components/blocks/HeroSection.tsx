@@ -1,5 +1,5 @@
 import { HeroSectionProps } from "@/types";
-import { StrapiImage } from "../StrapiImage";
+import { StrapiImage } from "@/components/StrapiImage";
 import Link from "next/link";
 
 export async function HeroSection({ data }: { readonly data: HeroSectionProps }) {
