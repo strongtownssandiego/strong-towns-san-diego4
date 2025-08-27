@@ -30,9 +30,9 @@ export interface ElementsBlurb extends Struct.ComponentSchema {
     displayName: 'Blurb';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'elements.link', false>;
     description: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'elements.link', false>;
   };
 }
 
