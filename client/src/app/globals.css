@@ -126,7 +126,7 @@
     align-items: center;
     padding: 2rem 4.8rem;
     z-index: 10;
-    background-color: $light-beige;
+    background-color: light-beige;
   }
 
   .header__logo {
@@ -143,5 +143,10 @@
     margin-right: 4.6rem;
   }
 
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 22rem;
+  }
   
 }
