@@ -8,36 +8,36 @@ export async function HeroSection({ data }: { readonly data: HeroSectionProps })
   // console.log("cta", cta0);
 
   return (
-    <section>
-  <div className="relative isolate px-6 pt-14 lg:px-8">
-    <div aria-hidden="true" className="absolute inset-x-0 -z-10 overflow-hidden ">
-      <StrapiImage
-        src={image.url}
-        alt={image.alternativeText || "No alternative text provided"}
-        className="hero__background-image"
-        width={1000}
-        height={525}
-        priority
-      />
-      <div className="absolute inset-0 bg-black/20"></div>
-    </div>
-    <div className="mx-auto max-w-2xl py-32 sm:py-12 lg:py-16">
-      <div className="text-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-gray-200 sm:text-6xl">{heading}</h1>
-        <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">{subHeading}</p>
-        <div className="mt-10 flex items-center justify-center gap-x-6">
-          {cta0 && (
-            <button className={"btn btn--medium rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"}>
-              <Link href={cta0.href} 
-                target={cta0.isExternal ? "_blank" : "_self"}>
-                {cta0.text}
-              </Link>
-            </button>
-          )}
+    <section className="hero">
+      <div className="relative isolate px-6 pt-4 lg:px-8">
+        <div aria-hidden="true" className="absolute inset-x-0 -z-10 overflow-hidden ">
+          <StrapiImage
+            src={image.url}
+            alt={image.alternativeText || "No alternative text provided"}
+            className="hero__background-image"
+            width={1000}
+            height={525}
+            priority
+          />
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div className="mx-auto max-w-2xl py-4">
+          <div className="text-center">
+            <h1 className="text-4xl font-semibold tracking-tight text-gray-200 sm:text-6xl">{heading}</h1>
+            <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">{subHeading}</p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              {cta0 && (
+                <button className={"btn btn--medium rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"}>
+                  <Link href={cta0.href}
+                    target={cta0.isExternal ? "_blank" : "_self"}>
+                    {cta0.text}
+                  </Link>
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
     </section>
   );
