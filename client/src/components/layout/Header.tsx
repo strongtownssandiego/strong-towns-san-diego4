@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { StrapiImage } from "@/components/StrapiImage";
 import { LinkProps, LogoProps } from "@/types";
+import { useMediaQuery } from "@/lib/use-media-query";
 
 interface HeaderProps {
   data: {
@@ -14,9 +14,11 @@ interface HeaderProps {
 
 export function Header({ data }: HeaderProps) {
 
-  if (!data) return null;
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
+  if (!data) return null;
   const { logo, navigation, cta } = data;
+
   return (
     <header className="header">
       <Link href="/">
