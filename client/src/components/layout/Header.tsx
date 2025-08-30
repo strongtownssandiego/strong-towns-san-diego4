@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LinkProps, LogoProps } from "@/types";
 // import { useMediaQuery } from "@/lib/use-media-query";
 import Logo from "../elements/Logo";
+import Navbar from "./Navbar";
 
 interface HeaderProps {
   data: {
@@ -21,9 +22,18 @@ export function Header({ data }: HeaderProps) {
   const { logo, navigation, cta } = data;
 
   return (
-    <header className="header">
+    <header className="header ">
       <Logo logo={logo} />
-      <ul className="header__nav">
+      <Navbar navigation={navigation} />
+      { cta ?  <Link href={cta.href} target={cta.isExternal ? "_blank" : "_self"}>
+        <button className="btn btn--black btn--small">{cta.text}</button>
+      </Link> : null }
+    </header>
+  );
+}
+
+/*
+      <ul className="header__nav flex items-center m-2 border-solid border-2">
         {navigation.map((item) => (
           <li key={item.id}>
             <Link
@@ -35,9 +45,5 @@ export function Header({ data }: HeaderProps) {
           </li>
         ))}
       </ul>
-      { cta ?  <Link href={cta.href} target={cta.isExternal ? "_blank" : "_self"}>
-        <button className="btn btn--black btn--small">{cta.text}</button>
-      </Link> : null }
-    </header>
-  );
-}
+
+*/
