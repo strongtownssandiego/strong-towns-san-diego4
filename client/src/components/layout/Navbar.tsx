@@ -1,11 +1,14 @@
+'use client';
+import { useMediaQuery } from '@/lib/use-media-query';
 import { LinkProps } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 
 const Navbar = ({navigation}: {navigation: LinkProps[]}) => {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   return (
-    <div>
-      <ul className="header__nav flex items-center m-2 border-solid border-2">
+    <nav className="flex items-center align-center justify-center">
+      <ul className="flex gap-4 px-4 py-1 border-1 border-solid">
         {navigation.map((item) => (
           <li key={item.id}>
             <Link
@@ -18,7 +21,7 @@ const Navbar = ({navigation}: {navigation: LinkProps[]}) => {
         ))}
       </ul>
 
-    </div>
+    </nav>
   )
 }
 

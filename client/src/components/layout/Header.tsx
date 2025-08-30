@@ -1,8 +1,6 @@
 "use client";
 import Link from "next/link";
-// import { StrapiImage } from "@/components/StrapiImage";
 import { LinkProps, LogoProps } from "@/types";
-// import { useMediaQuery } from "@/lib/use-media-query";
 import Logo from "../elements/Logo";
 import Navbar from "./Navbar";
 
@@ -15,14 +13,11 @@ interface HeaderProps {
 }
 
 export function Header({ data }: HeaderProps) {
-
-  // const isDesktop = useMediaQuery('(min-width: 768px)');
-
   if (!data) return null;
   const { logo, navigation, cta } = data;
 
   return (
-    <header className="header ">
+    <header className="w-full px-10 flex justify-between sticky top-0 z-10">
       <Logo logo={logo} />
       <Navbar navigation={navigation} />
       { cta ?  <Link href={cta.href} target={cta.isExternal ? "_blank" : "_self"}>

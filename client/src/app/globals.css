@@ -44,6 +44,10 @@
 }
 
 :root {
+  --st-navyblue: #0C2340;
+  --st-lightblue: #A7C6ED;
+  --st-yellow: #FFB549;
+  --st-link: #5790DB;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -120,13 +124,9 @@
     @apply bg-background text-foreground;
   }
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 4.8rem;
-    z-index: 10;
-    background-color: light-beige;
+  header {
+    background-color: var(--st-navyblue);
+    color: var(--st-yellow);
   }
 
   .header__logo {
@@ -138,6 +138,11 @@
     display: flex;
     list-style: none;
   }
+
+  nav ul {
+    border-color: var(--st-yellow);
+  }
+
 
   .header__nav li:not(:last-of-type) {
     margin-right: 4.6rem;
