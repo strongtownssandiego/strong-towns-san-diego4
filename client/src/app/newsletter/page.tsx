@@ -3,7 +3,8 @@ import { useRouter } from 'next/navigation';
 
 const Newsletter = () => {
     const router = useRouter();
-    router.push('https://share-na2.hsforms.com/18bwXAlo4TrqFQnxcVBLYYA40bup4');
+    if (typeof window !== "undefined")  // avoid dev mode error in log from double-invoking
+        router.push("https://strongtownssandiego.fillout.com/newsletter");
 }
 
 export default Newsletter
