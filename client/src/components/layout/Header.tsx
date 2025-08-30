@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
-import { StrapiImage } from "@/components/StrapiImage";
+// import { StrapiImage } from "@/components/StrapiImage";
 import { LinkProps, LogoProps } from "@/types";
 // import { useMediaQuery } from "@/lib/use-media-query";
+import Logo from "../elements/Logo";
 
 interface HeaderProps {
   data: {
@@ -21,15 +22,7 @@ export function Header({ data }: HeaderProps) {
 
   return (
     <header className="header">
-      <Link href="/">
-        <StrapiImage
-          src={logo.image.url}
-          alt={logo.image.alternativeText || "No alternative text provided"}
-          className={"header__logo"}
-          width={120}
-          height={120}
-        />
-      </Link>
+      <Logo logo={logo} />
       <ul className="header__nav">
         {navigation.map((item) => (
           <li key={item.id}>
