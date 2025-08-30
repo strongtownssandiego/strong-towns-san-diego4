@@ -8,15 +8,14 @@ export async function HeroSection({ data }: { readonly data: HeroSectionProps })
   // console.log("cta", cta0);
 
   return (
-    <section className="hero">
-      <div className="relative isolate px-6 pt-4 lg:px-8">
+    <section>
+      <div className="relative isolate w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] xl:h-[100vh]">
         <div aria-hidden="true" className="absolute inset-x-0 -z-10 overflow-hidden ">
           <StrapiImage
             src={image.url}
             alt={image.alternativeText || "No alternative text provided"}
-            className="hero__background-image"
-            width={1000}
-            height={525}
+            width={2000}
+            height={1050}
             priority
           />
           <div className="absolute inset-0 bg-black/20"></div>
