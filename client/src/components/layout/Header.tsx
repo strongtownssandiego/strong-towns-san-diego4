@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { StrapiImage } from "@/components/StrapiImage";
 import { LinkProps, LogoProps } from "@/types";
-import { useMediaQuery } from "@/lib/use-media-query";
+// import { useMediaQuery } from "@/lib/use-media-query";
 
 interface HeaderProps {
   data: {
@@ -14,7 +14,7 @@ interface HeaderProps {
 
 export function Header({ data }: HeaderProps) {
 
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+  // const isDesktop = useMediaQuery('(min-width: 768px)');
 
   if (!data) return null;
   const { logo, navigation, cta } = data;

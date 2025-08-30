@@ -8,7 +8,7 @@ export default async function HomeRoute() {
   const { blocks } = obj.data;
 
   return (
-    <main className="container mx-auto py-6">
+    <main>
       <HeroSection data={blocks[0]} />
       <FeaturesSection data={blocks[1]} />
     </main>
