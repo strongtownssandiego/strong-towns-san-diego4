@@ -29,7 +29,7 @@ populate: {
               blurbs: {
                 fields: ["heading", "description"],
                 populate: {
-                  "cta": true,
+                  "link": true,
                 },
 
               },        

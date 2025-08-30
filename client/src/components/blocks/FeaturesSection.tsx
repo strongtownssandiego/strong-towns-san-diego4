@@ -13,7 +13,7 @@ export function FeaturesSection({
   return (
     <div className="">
       <div className="flex-1">
-        <section className="container px-4 py-6 mx-auto md:px-6 lg:py-24">
+        <section className="px-4 py-6 mx-auto md:px-6 lg:py-24">
           <div className="grid gap-8 md:grid-cols-3">
             {blurbs.map((blurb) => (
               <div
@@ -24,12 +24,12 @@ export function FeaturesSection({
                 <p className="text-gray-500">
                   {blurb.description}
                 </p>
-                {blurb.cta && (
+                {blurb.link && (
                   <a
-                    href={blurb.cta.href}
+                    href={blurb.link.href}
                     className="inline-block mt-4 text-sm font-semibold text-indigo-600"
                   >
-                    {blurb.cta.text}
+                    {blurb.link.text}
                   </a>
                 )}
               </div>
