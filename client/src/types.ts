@@ -15,15 +15,16 @@ export interface ImageProps {
 }
 
 export interface LogoProps {
-  logoText: string;
+  id: number;
   image: ImageProps;
+  logoText: string;
 }
 
 interface BlurbProps {
   id: number;
   heading: string;
   description: string;
-  cta: LinkProps;
+  link: LinkProps;
 }
 
 
