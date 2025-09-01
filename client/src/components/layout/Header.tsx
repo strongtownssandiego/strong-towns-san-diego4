@@ -15,12 +15,13 @@ interface HeaderProps {
 export function Header({ data }: HeaderProps) {
   if (!data) return null;
   const { logo, navigation, cta } = data;
+  const wantCtaBtn = false;
 
   return (
     <header className="w-full px-10 flex justify-between sticky top-0 z-10">
       <Logo logo={logo} />
       <Navbar navigation={navigation} />
-      { cta ?  <Link href={cta.href} target={cta.isExternal ? "_blank" : "_self"}>
+      { cta && wantCtaBtn ?  <Link href={cta.href} target={cta.isExternal ? "_blank" : "_self"}>
         <button className="btn btn--black btn--small">{cta.text}</button>
       </Link> : null }
     </header>
