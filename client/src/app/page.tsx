@@ -14,3 +14,13 @@ export default async function HomeRoute() {
     </main>
   );
 }
+
+
+/*
+
+    <div className="px-10 text-2xl text-center">
+      <h2>Get Involved!</h2>
+      <Newsletter />
+    </div>
+
+*/
