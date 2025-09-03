@@ -3,7 +3,7 @@ export default function Resources() {
   return (
     <main className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
       <object data="/STSD_Resources.pdf" type="application/pdf" width="100%" height="800">
-        <p>Your browser doesn't support PDFs. <a href="/STSD_Resources.pdf">Download</a> instead.</p>
+        <p>Your browser does not support PDFs. <a href="/STSD_Resources.pdf">Download</a> instead.</p>
       </object>
     </main>  );
 }
