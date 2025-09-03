@@ -12,12 +12,19 @@ const Navbar = ({navigation}: {navigation: LinkProps[]}) => {
       <ul className="flex gap-4 px-4 py-1 rounded-full border-1 border-solid">
         {navigation.map((item) => (
           <li key={item.id}>
-            <Link
-              href={item.href}
-              target={item.isExternal ? "_blank" : "_self"}
-            >
-              <h5>{item.text}</h5>
-            </Link>
+            {item.isExternal ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h5>{item.text}</h5>
+              </a>
+            ) : (
+              <Link href={item.href}>
+                <h5>{item.text}</h5>
+              </Link>
+            )}
           </li>
         ))}
       </ul>
@@ -27,3 +34,14 @@ const Navbar = ({navigation}: {navigation: LinkProps[]}) => {
 }
 
 export default Navbar
+
+/*
+
+            <Link
+              href={item.href}
+              target={item.isExternal ? "_blank" : "_self"}
+            >
+              <h5>{item.text}</h5>
+            </Link>
+
+*/
