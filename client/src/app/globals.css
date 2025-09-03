@@ -148,6 +148,11 @@
     margin-right: 4.6rem;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
+
   .hero {
     position: relative;
     width: 100%;
