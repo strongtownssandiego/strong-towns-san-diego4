@@ -1,16 +1,32 @@
+import GoogleDocViewer from "@/components/GoogleDocViewer";
+
 export default function Resources() {
 
   return (
-    <main className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <object data="/STSD_Resources.pdf" type="application/pdf" width="100%" height="800">
-        <p>Your browser does not support PDFs. <a href="/STSD_Resources.pdf">Download</a> instead.</p>
-      </object>
-    </main>  );
+    <div className="p-6">
+
+
+      <div className="mt-8" />
+
+      <GoogleDocViewer url="https://docs.google.com/document/d/17b4wP9Fo3H3o-Y3z1yUWmhQsasis51ZdbqHo3Ncg1o8/edit?tab=t.0" height="80vh" />
+    </div>
+  );
 }
 
 
 
 /*
+      <GoogleDocViewer url="https://docs.google.com/document/d/1AbCdEfGhIjKlMnOpQrStUvWxYz1234567890/edit" />
+
+
+    <main className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <object data="/STSD_Resources.pdf" type="application/pdf" width="100%" height="800">
+        <p>Your browser does not support PDFs. <a href="/STSD_Resources.pdf">Download</a> instead.</p>
+      </object>
+    </main>  
+
+
+
 
 import PdfViewer from "@/components/PdfViewer";
 
