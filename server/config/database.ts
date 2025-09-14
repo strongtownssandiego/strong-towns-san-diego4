@@ -1,11 +1,7 @@
 import path from 'path';
 
-console.log('DATABASE CONFIG:', {
-  host: process.env.DATABASE_HOST,
-  port: process.env.DATABASE_PORT,
-  name: process.env.DATABASE_NAME,
-  user: process.env.DATABASE_USERNAME,
-});
+console.log('DB URL', process.env.DATABASE_URL);
+
 
 export default ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
