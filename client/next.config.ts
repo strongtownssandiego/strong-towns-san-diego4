@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         port: "1337",
         pathname: "/uploads/**/*",
       },
+      {
+        protocol: "https",
+        hostname: "glorious-beauty-7d079613e2.media.strapiapp.com",
+      },
     ],
   },
 };

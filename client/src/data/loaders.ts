@@ -1,6 +1,7 @@
+import { getStrapiURL } from "@/lib/utils";
 import qs from "qs";
 
-const BASE_URL = "http://localhost:1337";
+const BASE_URL = getStrapiURL(); //"http://localhost:1337";
 
 async function fetchData(url: string) {
   try {
