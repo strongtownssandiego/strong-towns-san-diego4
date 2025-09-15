@@ -1,7 +1,6 @@
 import path from 'path';
 
-console.log('DB URL', process.env.DATABASE_URL);
-
+// console.log('DB URL', process.env.DATABASE_URL);
 
 export default ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
