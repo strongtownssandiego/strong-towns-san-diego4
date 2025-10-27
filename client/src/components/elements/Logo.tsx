@@ -9,7 +9,7 @@ const Logo = ({logo}: {logo: LogoProps}) => {
       <StrapiImage
         src={logo.image.url}
         alt={logo.image.alternativeText || "Strong Towns San Diego logo links to Home page"}
-        className={"header__logo"}
+        className={"header__logo h-16 w-16"}
         width={120}
         height={120}
         title="Home page"
