@@ -6,7 +6,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const Navbar = ({navigation}: {navigation: LinkProps[]}) => {
-  // const isDesktop = useMediaQuery('(min-width: 768px)');
   return (
     <nav className="flex items-center align-center justify-center">
       <ul className="flex gap-4 px-4 py-1 rounded-full border-1 border-solid">
