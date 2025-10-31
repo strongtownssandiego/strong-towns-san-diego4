@@ -27,16 +27,24 @@ interface BlurbProps {
   link: LinkProps;
 }
 
+export interface HeadingProps extends Base<"blocks.heading"> {
+  heading: string;
+  linkId?: string;
+}
+
+export interface ParagraphProps extends Base<"blocks.paragraph"> {
+  content: string;
+}
 
 
 type ComponentType =
   | "blocks.hero-section"
-  | "blocks.features-section";
+  | "blocks.features-section"
   // | "blocks.info-block"
   // | "blocks.subscribe"
-  // | "blocks.heading"
+  | "blocks.heading"
   // | "blocks.paragraph-with-image"
-  // | "blocks.paragraph"
+  | "blocks.paragraph";
   // | "blocks.full-image";
 
 
@@ -53,13 +61,13 @@ export interface Base<T extends ComponentType, D extends object = Record<string,
 
 export type Block =
   | HeroSectionProps
-  | FeaturesSectionProps;
+  | FeaturesSectionProps
   // | InfoBlockProps
   // | FeaturedArticleProps
   // | SubscribeProps
-  // | HeadingProps
+  | HeadingProps
   // | ParagraphWithImageProps
-  // | ParagraphProps
+  | ParagraphProps;
   // | FullImageProps;
 
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
@@ -77,3 +85,8 @@ export interface FeaturesSectionProps extends Base<"blocks.features-section"> {
   blurbs: BlurbProps[];
 }
 
+export interface HomePageProps {
+  title: string;
+  description: string;
+  blocks: Array<{ __component: string; [key: string]: unknown }>;
+}
