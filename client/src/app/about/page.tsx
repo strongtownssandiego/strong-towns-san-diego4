@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Image from "next/image";
 
 const AboutPage: NextPage = () => {
-  console.log("about page");
+  // console.log("about page");
   return (
     <div>
       <div className="flex items-center justify-center pt-3">
