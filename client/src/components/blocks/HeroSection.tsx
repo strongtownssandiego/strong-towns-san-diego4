@@ -2,8 +2,7 @@ import { HeroSectionProps } from "@/types";
 import { StrapiImage } from "@/components/StrapiImage";
 import Link from "next/link";
 
-export async function HeroSection({ data }: { readonly data: HeroSectionProps }) {
-  const { heading, subHeading, image, cta } = data;
+export async function HeroSection({ heading, subHeading, image, cta }: Readonly<HeroSectionProps>) {
   const cta0 = cta && cta[0];
   // console.log("cta", cta0);
   const wantHeroBtn = false;
