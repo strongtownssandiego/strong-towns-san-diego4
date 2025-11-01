@@ -1,12 +1,13 @@
+export const WHICH_STRAPI_SERVER = process.env.WHICH_STRAPI_SERVER || "LOCAL";
+export const USE_STRAPI_CLOUD = (WHICH_STRAPI_SERVER === "CLOUD");
+const STRAPI_API_TOKEN = (USE_STRAPI_CLOUD) ? process.env.STRAPI_CLOUD_API_TOKEN : process.env.STRAPI_LOCAL_API_TOKEN;
+
 export function getStrapiURL() {
+  if (USE_STRAPI_CLOUD && process.env.STRAPI_CLOUD_URL) return process.env.STRAPI_CLOUD_URL;
   return "http://localhost:1337";
-  // return process.env.STRAPI_CLOUD_URL ?? "http://localhost:1337";
 }
 
 // lib/strapi.ts
-export const STRAPI_URL = process.env.STRAPI_URL || "https://your-strapi-domain";
-export const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
-
 type StrapiPopulate = "*" | "deep" | `deep,${number}` | string | Record<string, unknown>;
 
 type StrapiFilters = Record<string, unknown>;
@@ -41,17 +42,16 @@ export async function fetchFromStrapi<T = unknown>(
   url: URL,
   { populate ="*", filters, sort, pagination }: FetchOptions = {}
 ): Promise<T> {
-  // const url = new URL(`${STRAPI_URL}/api/${path}`);
 
   const params = new URLSearchParams();
 
-if (populate) {
-  if (typeof populate === "string") {
-    params.set("populate", populate);
-  } else {
-    appendQueryParams(params, "populate", populate);
+  if (populate) {
+    if (typeof populate === "string") {
+      params.set("populate", populate);
+    } else {
+      appendQueryParams(params, "populate", populate);
+    }
   }
-}
   if (sort) params.set("sort", sort);
   if (filters) params.set("filters", JSON.stringify(filters));
   if (pagination) params.set("pagination", JSON.stringify(pagination));
