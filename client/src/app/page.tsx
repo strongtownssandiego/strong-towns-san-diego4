@@ -3,7 +3,8 @@ import { getHomePage } from "@/data/loaders"; // getHomePageData
 
 export default async function HomeRoute() {
   const obj = await getHomePage();
-  const { title, description, blocks } = obj;
+  const { blocks } = obj;
+  // const { title, description, blocks } = obj;
   // console.log(title, description, blocks);
 
   return (

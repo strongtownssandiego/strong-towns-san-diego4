@@ -62,13 +62,13 @@ export interface Base<T extends ComponentType, D extends object = Record<string,
 export type Block =
   | HeroSectionProps
   | FeaturesSectionProps
+  | HeadingProps
+  | ParagraphProps;
+  // | ParagraphWithImageProps
+  // | FullImageProps;
   // | InfoBlockProps
   // | FeaturedArticleProps
   // | SubscribeProps
-  | HeadingProps
-  // | ParagraphWithImageProps
-  | ParagraphProps;
-  // | FullImageProps;
 
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   theme: "navy" | "orange";
@@ -88,5 +88,5 @@ export interface FeaturesSectionProps extends Base<"blocks.features-section"> {
 export interface HomePageProps {
   title: string;
   description: string;
-  blocks: Array<{ __component: string; [key: string]: unknown }>;
+  blocks: Array<Block>;
 }
