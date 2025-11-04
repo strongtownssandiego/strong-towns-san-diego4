@@ -1,7 +1,9 @@
-import { getStrapiURL } from "@/lib/utils";
+import { fetchFromStrapi } from "@/lib/strapi";
+import { getStrapiURL } from "@/lib/strapi";
+import { HomePageProps } from "@/types";
 import qs from "qs";
 
-const BASE_URL = getStrapiURL(); //"http://localhost:1337";
+const BASE_URL = getStrapiURL();
 
 async function fetchData(url: string) {
   try {
@@ -27,15 +29,10 @@ populate: {
           },
           "blocks.features-section": {
             populate: {
-              blurbs: {
-                fields: ["heading", "description"],
-                populate: {
-                  "link": true,
-                },
-
-              },        
+              blurbs: true     
             },
           },
+
         },
       }
 
@@ -43,6 +40,41 @@ populate: {
 }
 );
 
+/*
+          "blocks.heading": {
+            populate: {
+              image: true,              
+              cta: true,
+            },
+          },
+*/
+
+export async function getHomePage() {
+  const path = "/api/home-page";
+  const url = new URL(path, BASE_URL);
+  return fetchFromStrapi<HomePageProps>(url, {populate: {blocks: {populate: "*" } } });
+  
+}
+/*
+await fetchFromStrapi("home-page", {
+  populate: {
+    blocks: {
+      populate: {
+        blurbs: {
+          populate: "*",
+        },
+      },
+    },
+  },
+});
+
+const home = await fetchFromStrapi("home-page", {
+  populate: {
+    blocks: {
+      populate: "*",
+    },
+  },
+});*/
 
 export async function getHomePageData() {
   const path = "/api/home-page";

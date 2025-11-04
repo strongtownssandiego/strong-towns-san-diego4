@@ -1,4 +1,4 @@
-import { getStrapiURL } from "@/lib/utils";
+import { getStrapiURL } from "@/lib/strapi";
 import Image from "next/image";
 
 interface StrapiImageProps {

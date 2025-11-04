@@ -1,0 +1,35 @@
+import type { Block } from "@/types";
+
+import { FullImage } from "@/components/blocks/FullImage";
+import { Heading } from "@/components/blocks/Heading";
+import { HeroSection } from "@/components/blocks/HeroSection";
+import { InfoBlock } from "@/components/blocks/InfoBlock";
+import { Paragraph } from "@/components/blocks/Paragraph";
+import { ParagraphWithImage } from "@/components/blocks/ParagraphWithImage";
+
+function blockRenderer(block: Block, index: number) {
+  switch (block.__component) {
+    case "blocks.full-image":
+      return <FullImage {...block} key={index} />;
+    case "blocks.heading":
+      return <Heading {...block} key={index} />;
+    case "blocks.hero-section":
+      return <HeroSection {...block} key={index} />;
+    case "blocks.info-block":
+      return <InfoBlock {...block} key={index} />;
+    case "blocks.paragraph":
+      return <Paragraph {...block} key={index} />;
+    case "blocks.paragraph-with-image":
+      return <ParagraphWithImage {...block} key={index} />;
+    default:
+      return null;
+  }
+}
+
+export function BlockRenderer({ blocks }: { blocks: Block[] }) {
+  return (
+    <div className="w-full items-center">
+      {blocks.map((block, index) => blockRenderer(block, index))}
+    </div>
+  );
+}
