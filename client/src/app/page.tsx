@@ -6,6 +6,7 @@ export default async function HomeRoute() {
   const { blocks } = obj;
   // const { title, description, blocks } = obj;
   // console.log(title, description, blocks);
+  // console.log(blocks);
 
   return (
     <main>
@@ -13,15 +14,3 @@ export default async function HomeRoute() {
     </main>
   );
 }
-
-
-/*
-      <HeroSection data={blocks[0]} />
-      <FeaturesSection data={blocks[1]} />
-
-    <div className="px-10 text-2xl text-center">
-      <h2>Get Involved!</h2>
-      <Newsletter />
-    </div>
-
-*/

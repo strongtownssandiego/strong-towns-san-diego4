@@ -58,7 +58,7 @@ export async function fetchFromStrapi<T = unknown>(
 
   url.search = params.toString();
 
-  console.log(url.toString());
+  // console.log(url.toString());
 
   const res = await fetch(url.toString(), {
     headers: {

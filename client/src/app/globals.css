@@ -160,9 +160,14 @@
     min-height: 22rem;
   }
   
-  main section button {
+  /* main section button { */
+  .yellow-on-navy {
     background-color: var(--st-navyblue);
     color: var(--st-yellow);
+  }
+  .navy-on-yellow {
+    background-color: var(--st-yellow);
+    color: var(--st-navyblue);
   }
 
   
