@@ -2,28 +2,26 @@ import { HeroSectionProps } from "@/types";
 import { StrapiImage } from "@/components/StrapiImage";
 import Link from "next/link";
 
-export async function HeroSection({ heading, subHeading, image, cta }: Readonly<HeroSectionProps>) {
+export async function HeroSection({ heading, subheading, image, cta }: Readonly<HeroSectionProps>) {
   const cta0 = cta && cta[0];
-  // console.log("cta", cta0);
+  // console.log("subheading", subheading);
   const wantHeroBtn = false;
 
   return (
-    <section>
-      <div className="relative isolate w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] xl:h-[100vh]">
-        <div aria-hidden="true" className="absolute inset-x-0 -z-10 overflow-hidden ">
+    <>
+    <section className="w-full">
+        <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] xl:h-[100vh] overflow-hidden">
           <StrapiImage
             src={image.url}
-            alt={image.alternativeText || "No alternative text provided"}
+            alt={image.alternativeText || "Hero background"}
             width={2000}
             height={1050}
+            className="w-full h-full object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
-        <div className="mx-auto max-w-2xl py-4">
-          <div className="text-center">
-            <h1 className="text-4xl font-semibold tracking-tight text-gray-200 sm:text-6xl">{heading}</h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">{subHeading}</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-start pt-4 sm:pt-6 lg:pt-10 text-center px-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-200 drop-shadow-lg">{heading}</h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-200 drop-shadow-lg">{subheading}</h1>
             <div className="mt-2 flex items-center justify-center gap-x-6">
               {cta0 && wantHeroBtn && (
                 <button className={"btn btn--medium rounded-full  px-5 py-2 text-sm font-semibold shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"}>
@@ -35,15 +33,26 @@ export async function HeroSection({ heading, subHeading, image, cta }: Readonly<
               )}
             </div>
           </div>
+        
         </div>
-      </div>
-
     </section>
+    </>
   );
 }
 
 /*
 
+    {cta0 && wantHeroBtn && (
+      <div className="mt-2 flex items-center justify-center gap-x-6">
+        <Link
+          href={cta0.href}
+          target={cta0.isExternal ? "_blank" : "_self"}
+          className="btn btn--medium rounded-full px-5 py-2 text-sm font-semibold shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          {cta0.text}
+        </Link>
+      </div>
+    )}
 
       <StrapiImage
         src={image.url}
@@ -53,7 +62,7 @@ export async function HeroSection({ heading, subHeading, image, cta }: Readonly<
         height={1080}
       />
       <h1>{heading}</h1>
-      <p>{subHeading}</p>
+      <p>{subheading}</p>
       {cta0 && (
         <button className={`btn btn--medium`}>
           <Link href={cta0.href} target={cta0.isExternal ? "_blank" : "_self"}>
