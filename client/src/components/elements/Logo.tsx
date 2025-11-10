@@ -1,9 +1,8 @@
 import { LogoProps } from "@/types"
 import Link from "next/link"
-import { StrapiImage } from "../StrapiImage"
+import { StrapiImage } from "@/components/StrapiImage";
 
 const Logo = ({logo}: {logo: LogoProps}) => {
-  // console.log(logo);
   return (
     <Link href="/">
       <StrapiImage
