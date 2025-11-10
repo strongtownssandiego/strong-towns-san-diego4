@@ -31,8 +31,8 @@ const AboutPage: NextPage = () => {
     <div className="w-full md:w-1/2">
       <Image
         className="w-full"
-        src="/images/IMG_0786.jpg"
-        alt="Strong Towns San Diego logo"
+        src="/images/ST_Meetup_IMG_0786.jpg"
+        alt="Strong Towns San Diego meetup"
         width={360}
         height={480}
       />

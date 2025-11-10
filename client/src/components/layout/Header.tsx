@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { FaInstagram, FaDiscord, FaRedditAlien, FaFacebookF } from "react-icons/fa";
+// import { FaInstagram, FaDiscord, FaRedditAlien, FaFacebookF } from "react-icons/fa";
+import { FaInstagram, FaRedditAlien, FaFacebookF } from "react-icons/fa";
 import Link from "next/link";
 import { LinkProps, LogoProps } from "@/types";
 import Logo from "../elements/Logo";
@@ -21,12 +22,6 @@ const socials = [
     href: "https://www.instagram.com/strongtownssandiego/",
     icon: FaInstagram,
     bg: "hover:bg-pink-700",
-  },
-  {
-    name: "Discord",
-    href: "https://discord.com/invite/8WYy2sQcxA",
-    icon: FaDiscord,
-    bg: "hover:bg-indigo-600",
   },
   {
     name: "Reddit",
@@ -135,5 +130,12 @@ export default function Header({ data }: HeaderProps) {
 
     <header className="shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+
+  {
+    name: "Discord",
+    href: "https://discord.com/invite/8WYy2sQcxA",
+    icon: FaDiscord,
+    bg: "hover:bg-indigo-600",
+  },
 
 */
