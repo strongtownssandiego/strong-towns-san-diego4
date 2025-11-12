@@ -72,7 +72,7 @@ export default function Header({ data }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={name}
-              className={`transition-colors bg-transparent ${bg} text-[var(--st-yellow)] hover:text-white`}
+              className={`transition-colors bg-transparent ${bg} text-(--st-yellow) hover:text-white`}
             >
               <Icon size={24} />
             </a>
@@ -112,7 +112,7 @@ export default function Header({ data }: HeaderProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className={`transition-colors bg-transparent ${bg} text-[var(--st-yellow)] hover:text-white`}
+                  className={`transition-colors bg-transparent ${bg} text-(--st-yellow) hover:text-white`}
                 >
                   <Icon size={24} />
                 </a>
