@@ -20,7 +20,7 @@ export function InfoBlock({
           alt={image.alternativeText || "Parklet image"}
           height={250}
           width={300}
-          className="flex-shrink-0 rounded-lg"
+          className="shrink-0 rounded-lg"
         />
         <div className="prose mx-5">
           <h2 className="text-center">
