@@ -21,7 +21,6 @@
       "type": "dynamiczone",
       "components": [
         "blocks.hero-section",
-        "blocks.features-section",
         "blocks.paragraph",
         "blocks.paragraph-with-image",
         "blocks.info-block",
