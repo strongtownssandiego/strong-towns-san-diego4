@@ -1,4 +1,5 @@
 
+/* Types in Strapi */
 export interface LinkProps {
   id: number;
   text: string;
@@ -19,12 +20,12 @@ export interface LogoProps {
   logoText: string;
 }
 
-interface BlurbProps {
-  id: number;
-  heading: string;
-  description: string;
-  link: LinkProps;
-}
+// interface BlurbProps {
+//   id: number;
+//   heading: string;
+//   description: string;
+//   link: LinkProps;
+// }
 
 export interface FullImageProps extends Base<"blocks.full-image"> {
   id: number;
@@ -59,12 +60,12 @@ export interface InfoBlockProps extends Base<"blocks.info-block"> {
 
 type ComponentType =
   | "blocks.hero-section"
-  | "blocks.features-section"
   | "blocks.info-block"
   | "blocks.heading"
   | "blocks.paragraph-with-image"
   | "blocks.paragraph"
   | "blocks.full-image";
+  // | "blocks.features-section"
 
 
 export interface Base<T extends ComponentType, D extends object = Record<string, unknown>> {
@@ -80,12 +81,12 @@ export interface Base<T extends ComponentType, D extends object = Record<string,
 
 export type Block =
   | HeroSectionProps
-  | FeaturesSectionProps
   | HeadingProps
   | ParagraphProps
   | ParagraphWithImageProps
   | FullImageProps
   | InfoBlockProps;
+  // | FeaturesSectionProps
   // | FeaturedArticleProps
 
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
@@ -99,13 +100,42 @@ export interface HeroSectionProps extends Base<"blocks.hero-section"> {
 }
 
 // deprecated - too hard to populate
-export interface FeaturesSectionProps extends Base<"blocks.features-section"> {
-  id: number;
-  blurbs: BlurbProps[];
-}
+// export interface FeaturesSectionProps extends Base<"blocks.features-section"> {
+//   id: number;
+//   blurbs: BlurbProps[];
+// }
 
 export interface HomePageProps {
   title: string;
   description: string;
   blocks: Array<Block>;
 }
+
+export interface RegisterUserProps {
+  username: string;
+  password: string;
+  email: string;
+}
+
+
+
+/* Other Types */
+export interface RegisterUserState {
+  zodErrors: Record<string, string[]> | null;
+  strapiErrors: { message?: string } | null; // or more precise if you know Strapi’s shape
+  message: string | null;
+  values: {
+    username: string;
+    email: string;
+  };
+}
+
+export const initialRegisterState: RegisterUserState = {
+  zodErrors: null,
+  strapiErrors: null,
+  message: null,
+  values: {
+    username: "",
+    email: "",
+  },
+};
