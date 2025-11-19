@@ -42,8 +42,7 @@
         "blocks.info-block",
         "blocks.hero-section",
         "blocks.heading",
-        "blocks.full-image",
-        "blocks.features-section"
+        "blocks.full-image"
       ]
     },
     "tags": {

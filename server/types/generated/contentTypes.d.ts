@@ -450,7 +450,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         'blocks.hero-section',
         'blocks.heading',
         'blocks.full-image',
-        'blocks.features-section',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
