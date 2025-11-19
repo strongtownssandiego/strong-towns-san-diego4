@@ -72,6 +72,7 @@ export async function fetchFromStrapi<T>(
     throw new Error(`Strapi fetch error: ${res.status} ${res.statusText}`);
   }
 
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const json: any = await res.json();
 
   // Prefer "data" field, but fall back to entire JSON for custom endpoint, login etc.
