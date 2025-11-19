@@ -38,7 +38,7 @@ function appendQueryParams(params: URLSearchParams, key: string, value: unknown)
 /**
  * Generic helper to fetch data from Strapi API using a secure API token.
  */
-export async function fetchFromStrapi<T = unknown>(
+export async function fetchFromStrapi<T>(
   url: URL,
   { populate ="*", filters, sort, pagination }: FetchOptions = {}
 ): Promise<T> {
@@ -53,8 +53,8 @@ export async function fetchFromStrapi<T = unknown>(
     }
   }
   if (sort) params.set("sort", sort);
-  if (filters) params.set("filters", JSON.stringify(filters));
-  if (pagination) params.set("pagination", JSON.stringify(pagination));
+  if (filters) appendQueryParams(params, "filters", filters);
+  if (pagination) appendQueryParams(params, "pagination", pagination);  
 
   url.search = params.toString();
 
@@ -62,15 +62,22 @@ export async function fetchFromStrapi<T = unknown>(
 
   const res = await fetch(url.toString(), {
     headers: {
+      // "Content-Type": "application/json",         // for now we are only using GET, not POST
       Authorization: `Bearer ${STRAPI_API_TOKEN}`,
     },
     next: { revalidate: 60 }, // optional, for ISR (Next.js App Router)
   });
 
   if (!res.ok) {
-    throw new Error(`Strapi fetch error: ${res.statusText}`);
+    throw new Error(`Strapi fetch error: ${res.status} ${res.statusText}`);
   }
 
-  const json = await res.json();
-  return json.data as T;
+  const json: any = await res.json();
+
+  // Prefer "data" field, but fall back to entire JSON for custom endpoint, login etc.
+  if ("data" in json) {
+    return json.data as T;
+  }
+
+  return json as T;
 }
