@@ -9,11 +9,3 @@ export default function LoginRoute() {
         </div>
     );
 }
-
-/*
-        <div>
-            <LoginForm />;
-        </div>
-
-
-*/
