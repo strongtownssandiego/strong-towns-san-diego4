@@ -19,9 +19,15 @@ export default factories.createCoreController("plugin::users-permissions.user", 
           password,
         });
 
-      ctx.body = {
+      await strapi
+        .plugin("users-permissions")
+        .service("user")
+        .sendConfirmationEmail(newUser);
+
+      return (ctx.body = {
         user: newUser,
-      };
+        message: "Registration successful. Please check your email to verify your account.",
+      });
     } catch (err) {
       strapi.log.error("Error in /create-user:", err);
       ctx.internalServerError("Unable to create user");
