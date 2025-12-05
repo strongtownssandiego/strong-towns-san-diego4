@@ -17,9 +17,10 @@ async function fetchData(url: string) {
 
 }
 
-const homePageQuery = qs.stringify({
-populate: {
-    blocks: {
+const homePageQuery = qs.stringify(
+{
+	populate: {
+      blocks: {
         on: {
           "blocks.hero-section": {
             populate: {
@@ -27,21 +28,21 @@ populate: {
               cta: true,
             },
           },
+        },
+      },
+    },
+}
+);
+
+/*
           "blocks.features-section": {
             populate: {
               blurbs: true     
             },
           },
 
-        },
-      }
 
-  }
-}
-);
-
-/*
-          "blocks.heading": {
+"blocks.heading": {
             populate: {
               image: true,              
               cta: true,
