@@ -138,7 +138,7 @@ export default function GoogleDocViewer({ url, height = "80vh" }: GoogleDocViewe
   return (
     <div className="relative w-full" style={{ height: fullscreen ? "100vh" : height }}>
       {/* Toolbar */}
-      <div className="absolute top-2 right-2 z-10 flex items-center gap-2">
+      <div className="absolute top-2 right-8 z-10 flex items-center gap-2">
         <button
           onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
           className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full shadow border"
