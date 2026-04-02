@@ -1,6 +1,5 @@
 export const WHICH_STRAPI_SERVER = process.env.WHICH_STRAPI_SERVER || "LOCAL";
 export const USE_STRAPI_CLOUD = (WHICH_STRAPI_SERVER === "CLOUD");
-// const STRAPI_API_TOKEN = (USE_STRAPI_CLOUD) ? process.env.STRAPI_CLOUD_API_TOKEN : process.env.STRAPI_LOCAL_API_TOKEN;
 
 export function getStrapiURL() {
   if (USE_STRAPI_CLOUD && process.env.STRAPI_CLOUD_URL) return process.env.STRAPI_CLOUD_URL;
@@ -43,9 +42,17 @@ export async function fetchFromStrapi<T>(
   { populate ="*", filters, sort, pagination }: FetchOptions = {}
 ): Promise<T> {
 
+  let env = 'Unknown environment';
+  if (process.env.NODE_ENV === 'development') {
+    env = 'Running in development mode';
+  } else if (process.env.NODE_ENV === 'production') {
+    env = 'Running in production mode';
+  }
+
   console.log("STRAPI TARGET:", {
     server: USE_STRAPI_CLOUD ? "CLOUD" : "LOCAL",
     url: getStrapiURL(),
+    env: env
   });
   
   const params = new URLSearchParams();
@@ -62,23 +69,7 @@ export async function fetchFromStrapi<T>(
   if (pagination) appendQueryParams(params, "pagination", pagination);  
 
   url.search = params.toString();
-
   // console.log(url.toString());
-
-  /*
-  if (!STRAPI_API_TOKEN) {
-    throw new Error(
-      `Missing STRAPI_API_TOKEN for ${USE_STRAPI_CLOUD ? "CLOUD" : "LOCAL"}`
-    );
-  }
-  const res = await fetch(url.toString(), {
-    headers: {
-      // "Content-Type": "application/json",         // for now we are only using GET, not POST
-      Authorization: `Bearer ${STRAPI_API_TOKEN}`,
-    },
-    next: { revalidate: 60 }, // optional, for ISR (Next.js App Router)
-  });
-  */
 
   // use Public "Find" access, not API token
   const res = await fetch(url.toString(), {
